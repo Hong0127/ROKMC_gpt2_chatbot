@@ -1,6 +1,7 @@
 transformers
 torch
 python-docx
-pyhwp
+olefile
 PyMuPDF
 tqdm
+accelerate
