@@ -1,0 +1,6 @@
+transformers
+torch
+python-docx
+pyhwp
+PyMuPDF
+tqdm
