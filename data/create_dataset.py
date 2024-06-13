@@ -1,6 +1,6 @@
 import os
 import fitz  # PyMuPDF
-import pyhwp
+import olefile
 from tqdm import tqdm
 
 # PDF 파일에서 텍스트 추출
@@ -13,8 +13,9 @@ def extract_text_from_pdf(pdf_path):
 
 # HWP 파일에서 텍스트 추출
 def extract_text_from_hwp(hwp_path):
-    doc = pyhwp.HWPDocument(hwp_path)
-    text = doc.body_text()
+    f = olefile.OleFileIO(hwp_path)
+    encoded_text = f.openstream('BodyText/Text').read()
+    text = encoded_text.decode('utf-16')
     return text
 
 # 텍스트 데이터셋 생성
@@ -31,6 +32,6 @@ def create_text_file_from_documents(file_paths, output_file):
 
 if __name__ == "__main__":
     # 학습 데이터 파일 생성
-    file_paths = ['/Users/hongseongmin/source/gpt_2_chatbot/data/create_dataset.py']
+    file_paths = ['path/to/file1.pdf', 'path/to/file2.hwp', ...]
     output_file = 'training_data.txt'
     create_text_file_from_documents(file_paths, output_file)
