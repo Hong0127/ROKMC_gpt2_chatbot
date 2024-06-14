@@ -2,6 +2,9 @@
 
 This project demonstrates how to fine-tune a GPT-2 model using `.hwp` and `.pdf` files and deploy it for a simple chat application.
 
+TODO.
+ 1. train koQuad dataset / KLUE dataset
+
 ## Setup
 
 1. Clone the repository:
